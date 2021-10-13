@@ -16,7 +16,7 @@ export type TextOptions = {
     background?: string
 }
 
-export function color(text: string, options: TextOptions): string {
+export function color(text: string = '', options?: TextOptions): string {
     const preparedText = text.replace(/ё/g, 'е');
     let result = '';
     if (options) {
