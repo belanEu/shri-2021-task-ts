@@ -3,15 +3,9 @@ import { markdown } from './md';
 
 type colorFunctionType = typeof color;
 type colorFunctionParams = Parameters<colorFunctionType>;
-type TextOptions = Exclude<colorFunctionParams[1], undefined>;
+type IntersectionTextOptions = Exclude<colorFunctionParams[1], undefined>;
 
-type markdownFunctionType = typeof markdown;
-type markdownFunctionParams = Parameters<markdownFunctionType>;
-type FormTextOptions = Exclude<markdownFunctionParams[1], undefined>;
-
-type UnionTextOptions = TextOptions | FormTextOptions;
-
-export function style(text: string, options: UnionTextOptions) {
+export function style(text: string, options: IntersectionTextOptions): string {
     if (text.length === 0) {
         return text;
     }

@@ -5,7 +5,7 @@ type FormTextOptions = {
     italic?: boolean,
     mono?: boolean,
     link?: string
-}
+};
 
 export function markdown(text: string, options?: FormTextOptions): string {
     let result = text;
