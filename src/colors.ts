@@ -1,19 +1,22 @@
 import { backgroundColors, effects, fontColors, Reset } from './model';
 
-function addColor(text: string, color: string, isBackground: boolean = false): string {
+type RichColorUnion = keyof typeof fontColors;
+type RichEffectUnion = keyof typeof effects;
+
+function addColor(text: string, color: RichColorUnion, isBackground: boolean = false): string {
     if (isBackground) {
         return text + backgroundColors[color];
     }
     return text + fontColors[color];
 }
-function getEffects(effectList: string[]): string {
+function getEffects(effectList: RichEffectUnion[]): string {
     return effectList.map(effect => effects[effect]).join('');
 }
 
-export type TextOptions = {
-    font?: string,
-    effects?: string[],
-    background?: string
+type TextOptions = {
+    font?: RichColorUnion,
+    effects?: RichEffectUnion[],
+    background?: RichColorUnion
 }
 
 export function color(text: string, options?: TextOptions): string {

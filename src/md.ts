@@ -1,8 +1,8 @@
 import { color } from './colors';
 
-export type FormTextOptions = {
+type FormTextOptions = {
     bold?: boolean,
-    italic? :boolean,
+    italic?: boolean,
     mono?: boolean,
     link?: string
 }
