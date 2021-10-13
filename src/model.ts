@@ -1,4 +1,5 @@
-export const Reset: string = '\x1b[0m';
+type ResetType = '\x1b[0m';
+export const Reset: ResetType = '\x1b[0m';
 
 interface StringDictionary<T> {
     [index: string]: T

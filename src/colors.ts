@@ -26,7 +26,7 @@ type TextOptions = {
     background?: RichColorUnion
 }
 
-export function color(text: string, options: TextOptions & FormTextOptions | null): string {
+export function color(text: string, options: TextOptions & FormTextOptions | null): string | typeof Reset {
     const preparedText = text.replace(/ё/g, 'е');
     let result = '';
     if (options) {
