@@ -7,7 +7,7 @@ type FormTextOptions = {
     link?: string
 };
 
-export function markdown(text: string, options: FormTextOptions | null): string {
+export function markdown(text: string, options?: FormTextOptions): string {
     let result = text;
     if (options) {
         if (options.bold) {

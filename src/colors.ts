@@ -24,9 +24,11 @@ type TextOptions = {
     font?: RichColorUnion,
     effects?: RichEffectUnion[],
     background?: RichColorUnion
-}
+};
 
-export function color(text: string, options: TextOptions & FormTextOptions | null): string | typeof Reset {
+type Intersection = FormTextOptions & TextOptions;
+
+export function color(text: string, options?: Intersection): string {
     const preparedText = text.replace(/ё/g, 'е');
     let result = '';
     if (options) {
