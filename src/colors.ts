@@ -32,13 +32,13 @@ export function color(text: string, options?: Intersection): string {
     const preparedText = text.replace(/ё/g, 'е');
     let result = '';
     if (options) {
-        if (options.font) {
+        if (options.font && fontColors[options.font]) {
             result = addColor(result, options.font);
         }
-        if (options.background) {
+        if (options.background && backgroundColors[options.background]) {
             result = addColor(result, options.background, true);
         }
-        if (options.effects) {
+        if (options.effects && options.effects.every(effect => effects[effect])) {
             result += getEffects(options.effects);
         }
         result += preparedText;
