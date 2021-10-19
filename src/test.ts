@@ -5,8 +5,10 @@ console.log(style('red text', { font: 'red' }));
 console.log(style('green text', { font: 'green' }));
 console.log(style('blue text', { font: 'blue' }));
 console.log('\nall colors:');
-type colors = keyof typeof fontColors;
-const isColor = (name: colors): name is colors => fontColors.hasOwnProperty(name);
+
+type FontColorsType = typeof fontColors;
+
+const isColor = (name: string): name is keyof FontColorsType => fontColors.hasOwnProperty(name);
 const colorList = Object.keys(fontColors).filter(isColor);
 console.log(
     Array.from('Message of all colors')
