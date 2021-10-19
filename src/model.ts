@@ -1,43 +1,34 @@
-type ResetType = '\x1b[0m';
-export const Reset: ResetType = '\x1b[0m';
+export const Reset: string = '\x1b[0m';
 
-interface StringDictionary<T> {
-    [index: string]: T
-}
-
-interface Color<T> extends StringDictionary<T> {
-    readonly black: T,
-    readonly red: T,
-    readonly green: T,
-    readonly yellow: T,
-    readonly blue: T,
-    readonly magenta: T,
-    readonly cyan: T,
-    readonly white: T
-}
-
-interface Effect<T> extends StringDictionary<T> {
-    readonly bright: T,
-    readonly dim: T,
-    readonly italic: T,
-    readonly underscore: T,
-    readonly blink: T
-}
+type Effects = {
+    bright: string,
+    dim: string,
+    italic: string,
+    underscore: string,
+    blink: string,
+};
 
 type Primitive = 'white' | 'black';
+type Colors<T> = {
+    black: T,
+    red: T,
+    green: T,
+    yellow: T,
+    blue: T,
+    magenta: T,
+    cyan: T,
+    white: T,
+};
 
-export type RichColor = Color<string>;
-export type RichEffect = Effect<string>;
-export type PrimitiveColor = Color<Primitive>;
-
-export const effects: RichEffect = {
+export const effects: Effects = {
     bright: '\x1b[1m',
     dim: '\x1b[2m',
     italic: '\x1b[3m',
     underscore: '\x1b[4m',
     blink: '\x1b[5m',
 };
-export const fontColors: RichColor = {
+
+export const fontColors: Colors<string> = {
     black: '\x1b[30m',
     red: '\x1b[31m',
     green: '\x1b[32m',
@@ -47,7 +38,8 @@ export const fontColors: RichColor = {
     cyan: '\x1b[36m',
     white: '\x1b[37m',
 };
-export const backgroundColors: RichColor = {
+
+export const backgroundColors: Colors<string> = {
     black: '\x1b[40m',
     red: '\x1b[41m',
     green: '\x1b[42m',
@@ -58,7 +50,7 @@ export const backgroundColors: RichColor = {
     white: '\x1b[47m',
 };
 
-export const contrast: PrimitiveColor = {
+export const contrast: Colors<Primitive> = {
     black: 'white',
     red: 'black',
     green: 'black',
