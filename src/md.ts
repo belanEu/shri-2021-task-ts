@@ -1,13 +1,13 @@
 import { color } from './colors';
 
-type FormTextOptions = {
+type MarkdownOptionsType = {
     bold?: boolean,
     italic?: boolean,
     mono?: boolean,
     link?: string
 };
 
-export function markdown(text: string, options?: FormTextOptions): string {
+export function markdown(text: string, options?: MarkdownOptionsType) {
     let result = text;
     if (options) {
         if (options.bold) {
