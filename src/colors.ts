@@ -19,13 +19,20 @@ function getEffects(effectList: EffectsKeysType[]) {
     return effectList.map(effect => effects[effect]).join('');
 }
 
-type OptionsType = {
+type ColorOptionsType = {
     font?: FontColorsKeysType,
     background?: BackgroundColorsKeysType,
     effects?: EffectsKeysType[]
 };
 
-export function color(text: string, options?: OptionsType) {
+type MarkdownOptionsType = {
+    bold?: boolean,
+    italic?: boolean,
+    mono?: boolean,
+    link?: string
+};
+
+export function color(text: string, options?: ColorOptionsType & MarkdownOptionsType) {
     const preparedText = text.replace(/ё/g, 'е');
     let result = '';
     if (options) {
